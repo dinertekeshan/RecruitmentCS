@@ -1,4 +1,4 @@
-# RecruitmentCS
+# Python Recruitment Control System
 
 Project Name: Recruitment Control System
 
