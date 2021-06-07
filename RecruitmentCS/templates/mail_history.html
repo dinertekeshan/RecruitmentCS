@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3">
+
+                <h2>Mail History</h2>
+
+
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="alert alert-success alert-dismissable" role="alert">
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+
+                        <span aria-hidden="true">x</span>
+
+                    </button>
+
+
+                {{message}}
+
+
+                </div>
+
+
+                {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+
+                <div class="divScroll">
+                <table class="table table-hover table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Candidate Email</th>
+                        <th>Position</th>
+                        <th>City</th>
+                        <th>Company</th>
+                        <th>Sent Date</th>
+
+
+                    </tr>
+
+
+                   {% for row in mail_history %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.candidate_email}}</td>
+                        <td>{{row.position}}</td>
+                        <td>{{row.city}}</td>
+                        <td>{{row.company}}</td>
+                        <td>{{row.sent_date}}</td>
+
+                        <td>
+                             <a href="/deleteMailHistory/{{row.id}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are You Sure To Delete ?')"></a>
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+
+                </table>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
