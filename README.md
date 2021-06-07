@@ -9,10 +9,21 @@ Job Applicants enter their resume information and the position they want to appl
 While employers enter the positions (open vacancies) they open for applicants.
 For now the insert, update, delete and get methods are developed and with basic html files are used.
 
-In the next step I will develop a method for the Employers such that there will be an email sending button. 
-In the RecruitmentCSManagement.py button will be a function running to send emails for the suitable Applicants.
-There are conditions both for Employers and Applicants to be suitable for each other. 
-And these are "Position" and "City". 
-There will be a general chart for both Employers and Applicants separately.
+In the Version 2 I developed a function for the Employers such that there is an email sending button "publishedCandidates". 
+In the RecruitmentCSManagement.py publishedCandidates function running to send emails for the suitable Applicants.
+There are conditions" both for Employers and Applicants to be suitable to each other. 
+And these are; "item_candidate.position == my_data_employer.position 
+and item_candidate.city == my_data_employer.city 
+and item_candidate.is_active. 
+In the Version 3 there will be a general chart for both Employers and Applicants separately.
 
 In this web project Python Flask and MSSQL server is used.
+
+#SqlAlchemy Database Configuration With MSSQL server
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://username:psw@servername/DBname?driver=SQL+Server'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+pip install Flask
+pip install Flask-SQLAlchemy
+pip install pyodbc
+pip install Flask-Mail
