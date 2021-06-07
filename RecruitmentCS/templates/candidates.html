@@ -45,23 +45,23 @@
                 {% endwith %}
 
                 <div class="divScroll">
-                <table class="table table-hover table-success">
+                <table class="table table-hover table-dark">
 
                     <tr>
 
-                        <th><b>ID</b></th>
-                        <th><b>Name</b></th>
-                        <th><b>Surname</b></th>
-                        <th><b>TC No</b></th>
-                        <th><b>Position</b></th>
-                        <th><b>City</b></th>
-                        <th><b>Email</b></th>
-                        <th><b>Phone</b></th>
-                        <th><b>Description</b></th>
-                        <th><b>Create Date</b></th>
-                        <th><b>Edit Date</b></th>
-                        <th><b>Active</b></th>
-                        <th><b>Action</b></th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>TC No</th>
+                        <th>Position</th>
+                        <th>City</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Description</th>
+                        <th>Create Date</th>
+                        <th>Edit Date</th>
+                        <th>Active</th>
+                        <th>Action</th>
 
                     </tr>
 
@@ -84,10 +84,10 @@
                         <td>
                             <a href="/updateCandidates/{{row.id}}" class="btn btn-warning fa fa-edit" data-toggle="modal" data-target="#modaledit{{row.id}}"></a>
                             <a href="/deleteCandidates/{{row.id}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Are You Sure To Delete ?')"></a>
-                            <a href="/publishCandidates/{{row.id}}" class="btn btn-primary fa fa-paper-plane" onclick="return confirm('Are You Sure To Publish All Convenient Applicants ?')"></a>
-
                         </td>
                     </tr>
+
+
 
 
                   <!-- Modal Edit Applicant-->
@@ -139,7 +139,7 @@
 
                   <label>TC No:</label>
 
-                  <input type="text" class="form-control" name="TCNo" value="{{row.TCNo}}" maxlength="11">
+                  <input type="text" class="form-control" name="TCNo" value="{{row.TCNo}}">
 
 
                </div>
@@ -202,10 +202,13 @@
 
 
                   <label>Active(True/False):</label>
+                     {% if row.is_active %}
+                    <input type="checkbox" name="is_active" checked value="{{row.is_active}}">
+                    {% endif %}
 
-                  <input type="checkbox" name="is_active" value="{{row.is_active}}">
-
-
+                    {% if row.is_active == False or row.is_active == None %}
+                    <input type="checkbox" name="is_active" value="{{row.is_active}}">
+                    {% endif %}
                </div>
 
 
@@ -251,7 +254,7 @@
 
 
 
-                  <!-- Modal Insert(Add) Applicant-->
+                  <!-- Modal Add Applicant-->
 
 
 <div id="mymodal" class="modal fade" role="dialog">
@@ -285,7 +288,7 @@
                 <div class="col-12">
 
                   <label>TC No:</label>
-                  <input type="text" class="form-control" name="TCNo" required="1" maxlength="11">
+                  <input type="text" class="form-control" name="TCNo" required="1">
 
                </div>
 
