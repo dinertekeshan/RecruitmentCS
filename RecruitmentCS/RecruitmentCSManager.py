@@ -20,15 +20,15 @@ app.secret_key = "Secret Key"
 #added for emails.
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'diner.metu@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Ankara06'
+app.config['MAIL_USERNAME'] = 'example@gmail.com'
+app.config['MAIL_PASSWORD'] = 'example'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
 
 #SqlAlchemy Database Configuration With mssql
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://sa:C1086134@DESKTOP-81V57KU/RecruitmentCS?driver=SQL+Server'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://username:examplepws@Server/DataBase?driver=SQL+Server'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
