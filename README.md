@@ -15,7 +15,7 @@ There are conditions" both for Employers and Applicants to be suitable to each o
 And these are; "item_candidate.position == my_data_employer.position 
 and item_candidate.city == my_data_employer.city 
 and item_candidate.is_active. 
-In the Version 3 there will be a general chart for both Employers and Applicants separately.
+In the Version 3 there is a general chart for Sent Mails and Positions columns in the Home page.
 
 In this web project Python Flask and MSSQL server is used.
 
