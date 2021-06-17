@@ -132,10 +132,15 @@ def Mail_History():
 
 @app.route('/')
 def Index():
-    all_Candidate = Candidate.query.all()
-    all_Employer = Employer.query.all()
 
-    return render_template("index.html")
+    mail_history_list = Mail_history.query.all()
+    labels = [] #["01-01-2020", "02-01-2020","03-01-2020","04-01-2020","05-01-2020"]
+    values = [] #[123,443,55676,7543,3543]
+    for item_mail_history in mail_history_list:
+        labels.append(item_mail_history.sent_date)
+        values.append(item_mail_history.id)
+
+    return render_template("index.html", labels = labels, values = values)
 
 
 @app.route('/candidates')
